@@ -4,6 +4,8 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
 import "../../styles/AuthStyles.css";
+// import * as EmailValidator from "email-validator";
+
 const Register = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -18,10 +20,18 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     // console.log(name, email, address, password, phone);
-
     // console.log(process.env.REACT_APP_API);
-
     try {
+      // if (!email.endsWith("@mnnit.ac.in")) {
+      //   toast.error("Please enter college email id (xyz@mnnit.ac.in)");
+      //   return;
+      // }
+
+      // if (!EmailValidator.validate(email)) {
+      //   toast.error("Please enter a valid email id!");
+      //   return;
+      // }
+      // console.log(EmailValidator.validate(email), email);
       const res = await axios.post(
         `${process.env.REACT_APP_API}/api/v1/auth/register`,
         {

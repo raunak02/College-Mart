@@ -19,8 +19,7 @@ var gateway = new braintree.BraintreeGateway({
 
 export const createProductController = async (req, res) => {
   try {
-    const { name, description, price, category, quantity, shipping } =
-      req.fields;
+    const { name, description, price, category } = req.fields;
     const { photo } = req.files;
     //alidation
     switch (true) {
@@ -32,8 +31,8 @@ export const createProductController = async (req, res) => {
         return res.status(500).send({ error: "Price is Required" });
       case !category:
         return res.status(500).send({ error: "Category is Required" });
-      case !quantity:
-        return res.status(500).send({ error: "Quantity is Required" });
+      // case !quantity:
+      //   return res.status(500).send({ error: "Quantity is Required" });
       case photo && photo.size > 1000000:
         return res
           .status(500)
@@ -146,8 +145,7 @@ export const deleteProductController = async (req, res) => {
 //upate producta
 export const updateProductController = async (req, res) => {
   try {
-    const { name, description, price, category, quantity, shipping } =
-      req.fields;
+    const { name, description, price, category } = req.fields;
     const { photo } = req.files;
     //alidation
     switch (true) {
@@ -159,8 +157,8 @@ export const updateProductController = async (req, res) => {
         return res.status(500).send({ error: "Price is Required" });
       case !category:
         return res.status(500).send({ error: "Category is Required" });
-      case !quantity:
-        return res.status(500).send({ error: "Quantity is Required" });
+      // case !quantity:
+      //   return res.status(500).send({ error: "Quantity is Required" });
       case photo && photo.size > 1000000:
         return res
           .status(500)

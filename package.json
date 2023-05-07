@@ -1,7 +1,7 @@
 {
   "name": "collegemart",
   "version": "1.0.0",
-  "description": "ecommerce rest api",
+  "description": "College Mart is a prototype of our college's second-hand product e-commerce website. Users can sell their products via admin, and College Mart will handle all the unnecessary stress of selling on their behalf.",
   "main": "server.js",
   "type": "module",
   "scripts": {

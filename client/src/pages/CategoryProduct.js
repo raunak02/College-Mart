@@ -49,9 +49,9 @@ const CategoryProduct = () => {
                         })}
                       </h5>
                     </div>
-                    <p className="card-text ">
+                    {/* <p className="card-text ">
                       {p.description.substring(0, 60)}...
-                    </p>
+                    </p> */}
                     <div className="card-name-price">
                       <button
                         className="btn btn-info ms-1"

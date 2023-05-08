@@ -1,0 +1,36 @@
+.admin-menu {
+  margin: 0;
+  padding: 0;
+  width: 250px;
+  /* background-color: #f1f1f1; */
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+}
+
+.admin-menu a {
+  display: block;
+  color: black;
+  padding: 16px;
+  text-decoration: none;
+}
+ 
+
+
+div.content {
+  margin-left: 200px;
+  padding: 1px 16px;
+  height: 1000px;
+}
+@media screen and (max-width: 1000px) {
+  .admin-menu {
+    width: 80%;
+    height: auto;
+    /* text-align: center; */
+    /* align-items: center; */
+    position: relative;
+  }
+  .admin-menu a {float: left;}
+  div.content {margin-left: 0;}
+}
+

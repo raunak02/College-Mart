@@ -175,15 +175,15 @@ const HomePage = () => {
                   <div className="card-name-price">
                     <h5 className="card-title">{p.name}</h5>
                     <h5 className="card-title card-price">
-                      {p.price.toLocaleString("en-US", {
+                      {p.price.toLocaleString("en-IN", {
                         style: "currency",
-                        currency: "USD",
+                        currency: "INR",
                       })}
                     </h5>
                   </div>
-                  <p className="card-text ">
+                  {/* <p className="card-text ">
                     {p.description.substring(0, 60)}...
-                  </p>
+                  </p> */}
                   <div className="card-name-price">
                     <button
                       className="btn btn-info ms-1"

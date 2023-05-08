@@ -4,6 +4,8 @@ import Layout from "./../../components/Layout/Layout";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
+import "../../styles/Homepage.css";
+
 const Products = () => {
   const [products, setProducts] = useState([]);
 
@@ -26,13 +28,14 @@ const Products = () => {
   }, []);
   return (
     <Layout>
+      <div className="container-fluid m-3 dashboard">
       <div className="row dashboard">
-        <div className="col-md-3">
+        <div className="col-md-3 " >
           <AdminMenu />
         </div>
         <div className="col-md-9 ">
           <h1 className="text-center">All Products List</h1>
-          <div className="d-flex flex-wrap">
+          <div className="d-flex flex-wrap ">
             {products?.map((p) => (
               <Link
                 key={p._id}
@@ -43,17 +46,25 @@ const Products = () => {
                   <img
                     src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${p._id}`}
                     className="card-img-top"
+                    style={{ width: "18rem", height: "20rem" }}
                     alt={p.name}
                   />
                   <div className="card-body">
                     <h5 className="card-title">{p.name}</h5>
-                    <p className="card-text ">{p.description}</p>
+                    {/* <p className="card-text ">{p.description}</p> */}
+                    <h5 className="card-title card-price">
+                      {p.price.toLocaleString("en-IN", {
+                        style: "currency",
+                        currency: "INR",
+                      })}
+                    </h5>
                   </div>
                 </div>
               </Link>
             ))}
           </div>
         </div>
+      </div>
       </div>
     </Layout>
   );

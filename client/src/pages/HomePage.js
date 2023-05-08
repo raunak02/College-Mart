@@ -12,6 +12,7 @@ import "../styles/Homepage.css";
 const HomePage = () => {
   const navigate = useNavigate();
   const [cart, setCart] = useCart();
+  // const [item, setItem] = useEffect();
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
   const [checked, setChecked] = useState([]);

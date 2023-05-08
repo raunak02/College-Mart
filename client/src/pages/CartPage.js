@@ -24,9 +24,9 @@ const CartPage = () => {
       cart?.map((item) => {
         total = total + item.price;
       });
-      return total.toLocaleString("en-US", {
+      return total.toLocaleString("en-IN", {
         style: "currency",
-        currency: "USD",
+        currency: "INR",
       });
     } catch (error) {
       console.log(error);
@@ -113,13 +113,12 @@ const CartPage = () => {
                       alt={p.name}
                       width="100%"
                       height={"130px"}
-                    
                     />
                   </div>
                   <div className="col-md-4">
                     <p>{p.name}</p>
                     <p>{p.description.substring(0, 30)}</p>
-                    <p>Price : {p.price}</p>
+                    <p>Price : ₹{p.price}</p>
                   </div>
                   <div className="col-md-4 cart-remove-btn">
                     <button
@@ -136,7 +135,7 @@ const CartPage = () => {
               <h2>Cart Summary</h2>
               <p>Total | Checkout | Payment</p>
               <hr />
-              <h4>Total : {totalPrice()} </h4>
+              <h2>Total :{totalPrice()} </h2>
               {auth?.user?.address ? (
                 <>
                   <div className="mb-3">

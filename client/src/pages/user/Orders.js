@@ -31,7 +31,7 @@ const Orders = () => {
           <div className="col-md-3">
             <UserMenu />
           </div>
-          <div className="col-md-9">
+          <div className="col-md-7">
             <h1 className="text-center">All Orders</h1>
             {orders?.map((o, i) => {
               // Create a set to store unique product IDs

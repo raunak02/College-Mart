@@ -197,11 +197,16 @@ const CartPage = () => {
                 <>
                   <div className="mb-3" style={{ color: "black" }}>
                     {/* <h5>Current Address:</h5> */}
-                    <h5 style={{ color: "black", fontSize: "18px", fontWeight: "bold" }}>
-                    
+                    <h5
+                      style={{
+                        color: "black",
+                        fontSize: "18px",
+                        fontWeight: "bold",
+                      }}
+                    >
                       Address: {auth?.user?.address}
                     </h5>
-                    
+
                     <button
                       className="btn btn-outline-warning"
                       onClick={() => navigate("/dashboard/user/profile")}

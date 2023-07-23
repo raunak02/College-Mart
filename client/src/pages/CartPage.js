@@ -152,7 +152,7 @@ const CartPage = () => {
           <div className="row ">
             <div className="col-md-7  p-0 m-0">
               {uniqueCartItemsArray.map((p) => (
-                <div className="row card flex-row" key={p._id}>
+                <div className="row card flex-row " key={p._id}>
                   <div className="col-md-3">
                     <a href={`/product/${p.slug}`}>
                       <img
@@ -165,21 +165,21 @@ const CartPage = () => {
                     </a>
                   </div>
                   <div className="col-md-4">
-                    <p>{p.name}</p>
-                    <p>{p.description.substring(0, 30)}</p>
-                    <p>Price : ₹{p.price}</p>
+                    <h4>{p.name}</h4>
+                    <h6>
+                      <div style={{ color: "green" }}>₹{p.price}</div>
+                    </h6>
                   </div>
                   <div className="col-md-3 cart-remove-btn d-flex justify-content-between my-2">
+                    <a href={`/product/${p.slug}`}>
+                      <button className="btn btn-success">Details</button>
+                    </a>
                     <button
                       className="btn btn-danger"
                       onClick={() => removeCartItem(p._id)}
                     >
                       Remove
                     </button>
-
-                    <a href={`/product/${p.slug}`}>
-                      <button className="btn btn-success">Details</button>
-                    </a>
                   </div>
                 </div>
               ))}
@@ -188,12 +188,20 @@ const CartPage = () => {
               <h2>Cart Summary</h2>
               <p>Total | Checkout | Payment</p>
               <hr />
-              <h2>Total : {totalPriceForUniqueProducts()} </h2>
+              <h2>
+                <div style={{ color: "green" }}>
+                  Total : {totalPriceForUniqueProducts()}{" "}
+                </div>
+              </h2>
               {auth?.user?.address ? (
                 <>
-                  <div className="mb-3">
-                    <h4>Current Address</h4>
-                    <h5>{auth?.user?.address}</h5>
+                  <div className="mb-3" style={{ color: "black" }}>
+                    {/* <h5>Current Address:</h5> */}
+                    <h5 style={{ color: "black", fontSize: "18px", fontWeight: "bold" }}>
+                    
+                      Address: {auth?.user?.address}
+                    </h5>
+                    
                     <button
                       className="btn btn-outline-warning"
                       onClick={() => navigate("/dashboard/user/profile")}
@@ -220,7 +228,7 @@ const CartPage = () => {
                         })
                       }
                     >
-                      Plase Login to checkout
+                      Please Login to checkout
                     </button>
                   )}
                 </div>

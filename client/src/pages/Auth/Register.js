@@ -57,7 +57,10 @@ const Register = () => {
 
   return (
     <Layout title="Register to College Mart">
-      <div className="form-container" style={{ minHeight: "90vh" }}>
+      <div
+        className="form-container"
+        style={{ minHeight: "90vh", borderRadius: "10px", padding: "20px" }}
+      >
         <form onSubmit={handleSubmit}>
           <h4 className="title">REGISTER FORM</h4>
           <div className="mb-3">
@@ -123,7 +126,7 @@ const Register = () => {
               onChange={(e) => setAnswer(e.target.value)}
               className="form-control"
               id="exampleInputEmail1"
-              placeholder="What is Your DOB (DD-MM-YYYY)"
+              placeholder="Enter Your DOB (DDMMYYYY)"
               required
             />
           </div>

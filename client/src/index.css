@@ -40,11 +40,11 @@
 }
 .search-form input {
   border: none;
-  border-radius: 0;
+  border-radius: 10;
 }
 .search-form button {
   background-color: #000000;
-  border-radius: 0;
+  border-radius: 10;
   color: white;
 }
 

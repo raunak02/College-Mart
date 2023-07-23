@@ -16,13 +16,43 @@ const CartPage = () => {
   const [instance, setInstance] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const [uniqueCartItems, setUniqueCartItems] = useState([]);
 
-  //total price
-  const totalPrice = () => {
+// Get total price and unique cart items on cart update
+  useEffect(() => {
+    const uniqueItems = new Map();
+
+    cart?.forEach((item) => {
+      if (!uniqueItems.has(item._id)) {
+        uniqueItems.set(item._id, item);
+      }
+    });
+
+    setUniqueCartItems(Array.from(uniqueItems.values()));
+  }, [cart]);
+    // Get total price and unique cart items on cart update
+    useEffect(() => {
+      let totalPrice = 0;
+      const uniqueItems = new Set();
+
+      cart?.forEach((item) => {
+        totalPrice += item.price;
+        uniqueItems.add(JSON.stringify(item)); // Use JSON.stringify to compare item objects
+      });
+
+      setUniqueCartItems(uniqueItems);
+    }, [cart]);
+
+    // Convert Set of cart items to an array for rendering
+    const uniqueCartItemsArray = Array.from(uniqueCartItems).map((item) =>
+      JSON.parse(item)
+    );
+  // Total price calculation for unique products
+  const totalPriceForUniqueProducts = () => {
     try {
       let total = 0;
-      cart?.map((item) => {
-        total = total + item.price;
+      uniqueCartItemsArray.forEach((item) => {
+        total += item.price;
       });
       return total.toLocaleString("en-IN", {
         style: "currency",
@@ -30,21 +60,37 @@ const CartPage = () => {
       });
     } catch (error) {
       console.log(error);
+      return "0.00";
     }
   };
+  const uni = Array.from(new Set(cart?.map((item) => item._id)));
+  //total price
+  // const totalPrice = () => {
+  //   try {
+  //     let total = 0;
+  //     cart?.map((item) => {
+  //       total = total + item.price;
+  //     });
+  //     return total.toLocaleString("en-IN", {
+  //       style: "currency",
+  //       currency: "INR",
+  //     });
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
   //detele item
   const removeCartItem = (pid) => {
     try {
-      let myCart = [...cart];
-      let index = myCart.findIndex((item) => item._id === pid);
-      myCart.splice(index, 1);
-      setCart(myCart);
-      localStorage.setItem("cart", JSON.stringify(myCart));
+      const updatedCart = cart.filter((item) => item._id !== pid);
+      setCart(updatedCart);
+      localStorage.setItem("cart", JSON.stringify(updatedCart));
     } catch (error) {
       console.log(error);
     }
   };
-
+  // Get total price and unique product IDs on cart update
+  
   //get payment gateway token
   const getToken = async () => {
     try {
@@ -81,6 +127,7 @@ const CartPage = () => {
       console.log(error);
       setLoading(false);
     }
+    
   };
   return (
     <Layout>
@@ -92,11 +139,11 @@ const CartPage = () => {
                 ? "Hello Guest"
                 : `Hello  ${auth?.token && auth?.user?.name}`}
               <p className="text-center">
-                {cart?.length
-                  ? `You Have ${cart.length} items in your cart ${
+                {uni.length
+                  ? `You Have ${uni.length} items in your cart ${
                       auth?.token ? "" : "please login to checkout !"
                     }`
-                  : " Your Cart Is Empty"}
+                  : " Nothing to see here"}
               </p>
             </h1>
           </div>
@@ -104,29 +151,35 @@ const CartPage = () => {
         <div className="container ">
           <div className="row ">
             <div className="col-md-7  p-0 m-0">
-              {cart?.map((p) => (
+              {uniqueCartItemsArray.map((p) => (
                 <div className="row card flex-row" key={p._id}>
-                  <div className="col-md-4">
-                    <img
-                      src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${p._id}`}
-                      className="card-img-top"
-                      alt={p.name}
-                      width="100%"
-                      height={"130px"}
-                    />
+                  <div className="col-md-3">
+                    <a href={`/product/${p.slug}`}>
+                      <img
+                        src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${p._id}`}
+                        className="card-img-top"
+                        alt={p.name}
+                        width={"100px"}
+                        height={"100px"}
+                      />
+                    </a>
                   </div>
                   <div className="col-md-4">
                     <p>{p.name}</p>
                     <p>{p.description.substring(0, 30)}</p>
                     <p>Price : ₹{p.price}</p>
                   </div>
-                  <div className="col-md-4 cart-remove-btn">
+                  <div className="col-md-3 cart-remove-btn d-flex justify-content-between my-2">
                     <button
                       className="btn btn-danger"
                       onClick={() => removeCartItem(p._id)}
                     >
                       Remove
                     </button>
+
+                    <a href={`/product/${p.slug}`}>
+                      <button className="btn btn-success">Details</button>
+                    </a>
                   </div>
                 </div>
               ))}
@@ -135,7 +188,7 @@ const CartPage = () => {
               <h2>Cart Summary</h2>
               <p>Total | Checkout | Payment</p>
               <hr />
-              <h2>Total :{totalPrice()} </h2>
+              <h2>Total : {totalPriceForUniqueProducts()} </h2>
               {auth?.user?.address ? (
                 <>
                   <div className="mb-3">

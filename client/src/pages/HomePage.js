@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { Checkbox, Radio } from "antd";
+import { Checkbox, Radio, Form } from "antd";
 import { Prices } from "../components/Prices";
 import { useCart } from "../context/cart";
 import axios from "axios";
@@ -8,6 +8,8 @@ import toast from "react-hot-toast";
 import Layout from "./../components/Layout/Layout";
 import { AiOutlineReload } from "react-icons/ai";
 import "../styles/Homepage.css";
+import { Select } from "antd";
+const { Option } = Select;
 
 const HomePage = () => {
   const navigate = useNavigate();
@@ -21,6 +23,13 @@ const HomePage = () => {
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
 
+useEffect(() => {
+  if (!checked.length || !radio.length) getAllProducts();
+}, [checked.length, radio.length]);
+
+useEffect(() => {
+  if (checked.length || radio.length) filterProduct();
+}, [checked, radio]);
   //get all cat
   const getAllCategory = async () => {
     try {
@@ -119,7 +128,7 @@ const HomePage = () => {
     }
   };
   return (
-    <Layout title={"ALl Products - Best offers "}>
+    <Layout title={"College-Mart Home "}>
       {/* banner image */}
       <img
         src="/images/banner.png"
@@ -131,16 +140,25 @@ const HomePage = () => {
       <div className="container-fluid row mt-3 home-page">
         <div className="col-md-3 filters">
           <h4 className="text-center">Filter By Category</h4>
-          <div className="d-flex flex-column">
+          <Select
+            mode="multiple"
+            showSearch
+            style={{ width: "100%" }}
+            placeholder="Select categories"
+            onChange={(value) => setChecked(value)}
+            value={checked}
+            optionFilterProp="children"
+            filterOption={(input, option) =>
+              option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
+            }
+          >
             {categories?.map((c) => (
-              <Checkbox
-                key={c._id}
-                onChange={(e) => handleFilter(e.target.checked, c._id)}
-              >
+              <Option key={c._id} value={c._id}>
                 {c.name}
-              </Checkbox>
+              </Option>
             ))}
-          </div>
+          </Select>
+
           {/* price filter */}
           <h4 className="text-center mt-4">Filter By Price</h4>
           <div className="d-flex flex-column">
@@ -152,6 +170,7 @@ const HomePage = () => {
               ))}
             </Radio.Group>
           </div>
+
           <div className="d-flex flex-column">
             <button
               className="btn btn-danger"
@@ -166,11 +185,15 @@ const HomePage = () => {
           <div className="d-flex flex-wrap">
             {products?.map((p) => (
               <div className="card m-3" key={p._id}>
-                <img
-                  src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${p._id}`}
-                  className="card-img-top"
-                  alt={p.name}
-                />
+                <a href={`/product/${p.slug}`}>
+                  <img
+                    src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${p._id}`}
+                    className="card-img-top"
+                    alt={p.name}
+                    width={"100px"}
+                    height={"100px"}
+                  />
+                </a>
                 <div className="card-body">
                   <div className="card-name-price">
                     <h5 className="card-title">{p.name}</h5>

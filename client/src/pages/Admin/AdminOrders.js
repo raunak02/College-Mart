@@ -12,9 +12,8 @@ const AdminOrders = () => {
   const [status, setStatus] = useState([
     "Not Process",
     "Processing",
-    "Shipped",
-    "deliverd",
-    "cancel",
+    "Delivered",
+    "Cancel",
   ]);
   const [changeStatus, setCHangeStatus] = useState("");
   const [orders, setOrders] = useState([]);
@@ -57,8 +56,20 @@ const AdminOrders = () => {
           <div className="col-md-9">
             <h1 className="text-center">All Orders</h1>
             {orders?.map((o, i) => {
+              // Create a set to store unique product IDs
+              const uniqueProductIds = new Set();
+              const uniqueProducts = [];
+
+              // Iterate through the products and filter out duplicate products
+              o.products.forEach((p) => {
+                if (!uniqueProductIds.has(p._id)) {
+                  uniqueProductIds.add(p._id);
+                  uniqueProducts.push(p);
+                }
+              });
+
               return (
-                <div className="border shadow">
+                <div className="border shadow" key={o._id}>
                   <table className="table">
                     <thead>
                       <tr>
@@ -67,7 +78,7 @@ const AdminOrders = () => {
                         <th scope="col">Buyer</th>
                         <th scope="col"> date</th>
                         <th scope="col">Payment</th>
-                        {/* <th scope="col">Quantity</th> */}
+                        <th scope="col">Quantity</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -87,23 +98,25 @@ const AdminOrders = () => {
                           </Select>
                         </td>
                         <td>{o?.buyer?.name}</td>
-                        <td>{moment(o?.createAt).fromNow()}</td>
+                        <td>{moment(o?.createdAt).fromNow()}</td>
                         <td>{o?.payment.success ? "Success" : "Failed"}</td>
-                        <td>{o?.products?.length}</td>
+                        <td>{uniqueProducts.length}</td>
                       </tr>
                     </tbody>
                   </table>
                   <div className="container">
-                    {o?.products?.map((p, i) => (
+                    {uniqueProducts.map((p, i) => (
                       <div className="row mb-2 p-3 card flex-row" key={p._id}>
-                        <div className="col-md-4">
-                          <img
-                            src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${p._id}`}
-                            className="card-img-top"
-                            alt={p.name}
-                            width="100px"
-                            height={"100px"}
-                          />
+                        <div className="col-md-2">
+                          <a href={`/product/${p.slug}`}>
+                            <img
+                              src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${p._id}`}
+                              className="card-img-top"
+                              alt={p.name}
+                              width={"100px"}
+                              height={"100px"}
+                            />
+                          </a>
                         </div>
                         <div className="col-md-8">
                           <p>{p.name}</p>

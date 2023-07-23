@@ -6,7 +6,7 @@ import SearchInput from "../Form/SearchInput";
 import useCategory from "../../hooks/useCategory";
 import { useCart } from "../../context/cart";
 import { Badge } from "antd";
-
+import { FaSignOutAlt, FaChartBar } from "react-icons/fa";
 const Header = () => {
   const [auth, setAuth] = useAuth();
   const [cart] = useCart();
@@ -20,6 +20,7 @@ const Header = () => {
     localStorage.removeItem("auth");
     toast.success("Logout Successfully");
   };
+  const uniqueCartItems = Array.from(new Set(cart?.map((item) => item._id)));
   return (
     <>
       <nav className="navbar navbar-expand-lg bg-body-tertiary fixed-top">
@@ -105,7 +106,11 @@ const Header = () => {
                             auth?.user?.role === 1 ? "admin" : "user"
                           }`}
                           className="dropdown-item"
+                          style={{ color: "green" }}
                         >
+                          <FaChartBar
+                            style={{ marginRight: "5px" }}
+                          />
                           Dashboard
                         </NavLink>
                       </li>
@@ -114,7 +119,9 @@ const Header = () => {
                           onClick={handleLogout}
                           to="/login"
                           className="dropdown-item"
+                          style={{ color: "red" }}
                         >
+                          <FaSignOutAlt style={{ marginRight: "5px" }} />
                           Logout
                         </NavLink>
                       </li>
@@ -124,7 +131,11 @@ const Header = () => {
               )}
               <li className="nav-item">
                 <NavLink to="/cart" className="nav-link">
-                  <Badge count={cart?.length} showZero offset={[10, -5]}>
+                  <Badge
+                    count={uniqueCartItems?.length}
+                    showZero
+                    offset={[10, -5]}
+                  >
                     Cart
                   </Badge>
                 </NavLink>

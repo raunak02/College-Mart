@@ -72,6 +72,7 @@ const ProductDetails = () => {
               setCart([...cart, product]);
               localStorage.setItem("cart", JSON.stringify([...cart, product]));
               toast.success("Item Added to cart");
+              
             }}
           >
             ADD TO CART

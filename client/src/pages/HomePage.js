@@ -138,7 +138,7 @@ useEffect(() => {
       />
       {/* banner image */}
       <div className="container-fluid row mt-3 home-page">
-        <div className="col-md-3 filters">
+        <div className="col-md-3 filters ">
           <h4 className="text-center">Category</h4>
           <Select
             mode="multiple"
@@ -173,7 +173,7 @@ useEffect(() => {
 
           <div className="d-flex flex-column">
             <button
-              className="btn btn-danger"
+              className="btn btn-danger rounded"
               onClick={() => window.location.reload()}
             >
               RESET FILTERS
@@ -182,7 +182,7 @@ useEffect(() => {
         </div>
         <div className="col-md-9 ">
           <h1 className="text-center">All Products</h1>
-          <div className="d-flex flex-wrap">
+          <div className="d-flex flex-wrap justify-content-center">
             {products?.map((p) => (
               <div className="card m-3" key={p._id}>
                 <a href={`/product/${p.slug}`}>
@@ -209,13 +209,13 @@ useEffect(() => {
                   </p> */}
                   <div className="card-name-price">
                     <button
-                      className="btn btn-info ms-1"
+                      className="btn btn-info rounded"
                       onClick={() => navigate(`/product/${p.slug}`)}
                     >
                       DETAILS
                     </button>
                     <button
-                      className="btn btn-dark ms-1"
+                      className="btn btn-dark ms-2 rounded"
                       onClick={() => {
                         setCart([...cart, p]);
                         localStorage.setItem(

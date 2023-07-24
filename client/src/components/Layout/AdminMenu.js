@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import "./adminmenu.css"
+import "./adminmenu.css";
+import { FaArrowRight } from "react-icons/fa";
 const AdminMenu = () => {
   return (
     <>
@@ -26,7 +27,12 @@ const AdminMenu = () => {
                 textAlign: "center",
               }}
             >
-              <h3 className="text-center">Admin Panel</h3>
+              <div>
+                <h3 className="text-center">
+                  Admin Panel
+                </h3>
+                  {/* <FaArrowRight /> */}
+              </div>
             </NavLink>
           </div>
 

@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { useAuth } from "../../context/auth";
+import { FaArrowRight } from "react-icons/fa";
 const UserMenu = () => {
   const [auth, setAuth] = useAuth();
   return (
@@ -21,9 +22,10 @@ const UserMenu = () => {
           >
             <NavLink
               to={`/dashboard/${auth?.user?.role === 1 ? "admin" : "user"}`}
-              style={{ color: "white", textDecoration:"none" }}
+              style={{ color: "white", textDecoration: "none" }}
             >
               <h3 style={{ margin: 0 }}>Dashboard</h3>
+              {/* <FaArrowRight /> */}
             </NavLink>
           </div>
           <NavLink

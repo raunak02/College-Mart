@@ -5,6 +5,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import "../styles/ProductDetailsStyles.css";
 import { useCart } from "../context/cart";
 import toast from "react-hot-toast";
+import Modal from "react-modal";
 
 const ProductDetails = () => {
   const [cart, setCart] = useCart();
@@ -12,7 +13,11 @@ const ProductDetails = () => {
   const navigate = useNavigate();
   const [product, setProduct] = useState({});
   const [relatedProducts, setRelatedProducts] = useState([]);
-
+  const [showModal, setShowModal] = useState(false);
+  
+  const handleImageClick = () => {
+    setShowModal(true);
+  };
   //initalp details
   useEffect(() => {
     if (params?.slug) getProduct();
@@ -46,11 +51,11 @@ const ProductDetails = () => {
         <div className="col-md-4">
           <img
             src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${product._id}`}
-            className="card-img-top"
+            className="card-img-top rounded shadow"
             alt={product.name}
             height="500px"
             width="350px"
-            
+            onClick={handleImageClick}
           />
         </div>
         <div className="col-md-5 product-details-info">
@@ -72,7 +77,6 @@ const ProductDetails = () => {
               setCart([...cart, product]);
               localStorage.setItem("cart", JSON.stringify([...cart, product]));
               toast.success("Item Added to cart");
-              
             }}
           >
             ADD TO CART
@@ -132,6 +136,28 @@ const ProductDetails = () => {
           ))}
         </div>
       </div>
+      <Modal
+        isOpen={showModal}
+        onRequestClose={() => setShowModal(false)}
+        style={{
+          overlay: {
+            backgroundColor: "rgba(0, 0, 0, 0.75)",
+          },
+          content: {
+            maxWidth: "700px",
+            margin: "auto",
+            padding: "20px",
+            marginTop: "50px",
+          },
+        }}
+      >
+        <img
+          src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${product._id}`}
+          alt={product.name}
+          style={{ width: "100%", height: "auto", objectFit: "cover" }}
+          className="rounded shadow"
+        />
+      </Modal>
     </Layout>
   );
 };

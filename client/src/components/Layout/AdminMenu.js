@@ -5,8 +5,31 @@ const AdminMenu = () => {
   return (
     <>
       <div className="text-center">
-        <div className="list-group dashboard-menu admin-menu">
-          <h4>Admin Panel</h4>
+        <div className="text-center list-group dashboard-menu admin-menu">
+          <div
+            className="text-center"
+            style={{
+              backgroundColor: "#505050",
+              color: "white",
+              borderRadius: "10px 10px 0 0",
+              padding: "0px",
+              fontSize: "1.2rem",
+              paddingTop: "10px",
+            }}
+          >
+            <NavLink
+              className="text-center"
+              to="/dashboard/admin"
+              style={{
+                color: "white",
+                textDecoration: "none",
+                textAlign: "center",
+              }}
+            >
+              <h3 className="text-center">Admin Panel</h3>
+            </NavLink>
+          </div>
+
           <NavLink
             to="/dashboard/admin/create-category"
             className="list-group-item list-group-item-action"
@@ -31,12 +54,6 @@ const AdminMenu = () => {
           >
             Orders
           </NavLink>
-          {/* <NavLink
-            to="/dashboard/admin/users"
-            className="list-group-item list-group-item-action"
-          >
-            Users
-          </NavLink> */}
         </div>
       </div>
     </>

@@ -10,7 +10,7 @@
 
 .admin-menu a {
   display: block;
-  color: black;
+  color: rgb(63, 63, 63);
   padding: 16px;
   text-decoration: none;
 }

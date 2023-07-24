@@ -54,7 +54,7 @@ const AdminOrders = () => {
             <AdminMenu />
           </div>
           <div className="col-md-7">
-            <h1 className="text-center">All Orders</h1>
+            <h1 >All Orders</h1>
             {orders?.map((o, i) => {
               // Create a set to store unique product IDs
               const uniqueProductIds = new Set();

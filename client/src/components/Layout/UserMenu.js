@@ -1,11 +1,31 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { useAuth } from "../../context/auth";
 const UserMenu = () => {
+  const [auth, setAuth] = useAuth();
   return (
     <div>
-      <div className="text-center dashboard-menu">
+      <div
+        className="text-center dashboard-menu"
+        style={{ borderRadius: "10px" }}
+      >
         <div className="list-group">
-          <h4>Dashboard</h4>
+          <div
+            style={{
+              backgroundColor: "#505050",
+              color: "white",
+              borderRadius: "10px 10px 0 0",
+              padding: "15px",
+              fontSize: "1.2rem",
+            }}
+          >
+            <NavLink
+              to={`/dashboard/${auth?.user?.role === 1 ? "admin" : "user"}`}
+              style={{ color: "white", textDecoration:"none" }}
+            >
+              <h3 style={{ margin: 0 }}>Dashboard</h3>
+            </NavLink>
+          </div>
           <NavLink
             to="/dashboard/user/profile"
             className="list-group-item list-group-item-action"

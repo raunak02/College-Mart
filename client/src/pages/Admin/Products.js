@@ -41,9 +41,9 @@ const Products = () => {
             <AdminMenu />
           </div>
           <div className="col-md-9">
-            <h1 className="text-center">All Products List</h1>
+            <h1 >All Products List</h1>
             {/* Search Input */}
-            <div className="mb-3">
+            <div className="mb-3 col-md-10">
               <input
                 type="text"
                 className="form-control"

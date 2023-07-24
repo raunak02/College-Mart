@@ -85,9 +85,9 @@ const Orders = () => {
                           </a>
                         </div>
                         <div className="col-md-8">
-                          <p>{p.name}</p>
-                          <p>{p.description.substring(0, 30)}</p>
-                          <p>Price : {p.price}</p>
+                          <h6>{p.name}</h6>
+                          {/* <p>{p.description.substring(0, 30)}</p> */}
+                          <p>₹{p.price}</p>
                         </div>
                       </div>
                     ))}

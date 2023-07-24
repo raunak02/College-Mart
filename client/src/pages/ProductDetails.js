@@ -53,7 +53,7 @@ const ProductDetails = () => {
             
           />
         </div>
-        <div className="col-md-6 product-details-info">
+        <div className="col-md-5 product-details-info">
           <h1 className="text-center">{product.name}</h1>
           <hr />
           {/* <h4>PRODUCT DETAILS</h4> */}
@@ -111,7 +111,7 @@ const ProductDetails = () => {
                     className="btn btn-info ms-1"
                     onClick={() => navigate(`/product/${p.slug}`)}
                   >
-                    More Details
+                    DETAILS
                   </button>
                   {/* <button
                     className="btn btn-dark ms-1"

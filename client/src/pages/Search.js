@@ -22,12 +22,15 @@ const Search = () => {
           <div className="d-flex flex-wrap">
             {values?.results.map((p) => (
               <div className="card m-3" style={{ width: "18rem" }}>
-                <img
+                <a href={`/product/${p.slug}`}>
+                  <img
                   src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${p._id}`}
                   className="card-img-top"
                   style={{ width: "18rem", height: "20rem" }}
                   alt={p.name}
                 />
+                </a>
+                
                 <div className="card-body">
                   <h5 className="card-title">{p.name}</h5>
                   {/* <p className="card-text">
@@ -45,7 +48,7 @@ const Search = () => {
                     className="btn btn-info ms-1"
                     onClick={() => navigate(`/product/${p.slug}`)}
                   >
-                    More Details
+                    DETAILS
                   </button>
                   <button
                     className="btn btn-dark ms-1"

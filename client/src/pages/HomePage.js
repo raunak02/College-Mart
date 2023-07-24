@@ -139,7 +139,7 @@ useEffect(() => {
       {/* banner image */}
       <div className="container-fluid row mt-3 home-page">
         <div className="col-md-3 filters">
-          <h4 className="text-center">Filter By Category</h4>
+          <h4 className="text-center">Category</h4>
           <Select
             mode="multiple"
             showSearch
@@ -160,7 +160,7 @@ useEffect(() => {
           </Select>
 
           {/* price filter */}
-          <h4 className="text-center mt-4">Filter By Price</h4>
+          <h4 className="text-center mt-4">Price</h4>
           <div className="d-flex flex-column">
             <Radio.Group onChange={(e) => setRadio(e.target.value)}>
               {Prices?.map((p) => (
@@ -212,7 +212,7 @@ useEffect(() => {
                       className="btn btn-info ms-1"
                       onClick={() => navigate(`/product/${p.slug}`)}
                     >
-                      More Details
+                      DETAILS
                     </button>
                     <button
                       className="btn btn-dark ms-1"

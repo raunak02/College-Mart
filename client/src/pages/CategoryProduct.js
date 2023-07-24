@@ -34,11 +34,14 @@ const CategoryProduct = () => {
             <div className="d-flex flex-wrap">
               {products?.map((p) => (
                 <div className="card m-2" key={p._id}>
-                  <img
-                    src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${p._id}`}
-                    className="card-img-top"
-                    alt={p.name}
-                  />
+                  <a href={`/product/${p.slug}`}>
+                    <img
+                      src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${p._id}`}
+                      className="card-img-top"
+                      alt={p.name}
+                    />
+                  </a>
+
                   <div className="card-body">
                     <div className="card-name-price">
                       <h5 className="card-title">{p.name}</h5>
@@ -57,7 +60,7 @@ const CategoryProduct = () => {
                         className="btn btn-info ms-1"
                         onClick={() => navigate(`/product/${p.slug}`)}
                       >
-                        More Details
+                        DETAILS
                       </button>
                       {/* <button
                     className="btn btn-dark ms-1"

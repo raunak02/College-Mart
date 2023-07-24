@@ -67,15 +67,20 @@ const AdminOrders = () => {
                   uniqueProducts.push(p);
                 }
               });
+               const orderNumber = orders.length - i;
+
 
               return (
                 <Collapse key={o._id}>
-                  <Panel header={` #${i + 1}  ${o?.buyer?.name} `} key={o._id}>
+                  <Panel
+                    header={`  #${orderNumber}  ${o?.buyer?.name} `}
+                    key={o._id}
+                  >
                     <div className="shadow p-3 mb-5 bg-white rounded">
                       <table className="table">
                         <thead>
                           <tr>
-                            <th scope="col">#</th>
+                            <th scope="col">ID</th>
                             <th scope="col">Status</th>
                             <th scope="col">Buyer</th>
                             <th scope="col">Date</th>
@@ -85,7 +90,7 @@ const AdminOrders = () => {
                         </thead>
                         <tbody>
                           <tr>
-                            <td>{i + 1}</td>
+                            <td>{orderNumber}</td>
                             <td>
                               <Select
                                 bordered={false}

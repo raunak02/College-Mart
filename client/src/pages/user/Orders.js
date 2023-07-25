@@ -72,12 +72,12 @@ const Orders = () => {
                   </table>
                   <div className="container">
                     {uniqueProducts.map((p, i) => (
-                      <div className="row mb-2 p-3 card flex-row" key={p._id}>
+                      <div className="row mb-3 shadow p-3 card flex-row" key={p._id}>
                         <div className="col-md-2">
                           <a href={`/product/${p.slug}`}>
                             <img
                               src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${p._id}`}
-                              className="card-img-top"
+                              className="card-img "
                               alt={p.name}
                               width={"100px"}
                               height={"100px"}

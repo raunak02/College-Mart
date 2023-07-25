@@ -19,18 +19,21 @@ const Search = () => {
               ? "No Products Found"
               : `Found ${values?.results.length}`}
           </h5>
-          <div className="d-flex flex-wrap">
+          <div className="d-flex flex-wrap mb-4">
             {values?.results.map((p) => (
-              <div className="card m-3" style={{ width: "18rem" }}>
+              <div
+                className="card m-3 shadow card-zoom"
+                style={{ width: "18rem" }}
+              >
                 <a href={`/product/${p.slug}`}>
                   <img
-                  src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${p._id}`}
-                  className="card-img-top"
-                  style={{ width: "18rem", height: "20rem" }}
-                  alt={p.name}
-                />
+                    src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${p._id}`}
+                    className="card-img-top"
+                    style={{ width: "18rem", height: "20rem" }}
+                    alt={p.name}
+                  />
                 </a>
-                
+
                 <div className="card-body">
                   <h5 className="card-title">{p.name}</h5>
                   {/* <p className="card-text">
@@ -44,14 +47,15 @@ const Search = () => {
                     })}
                   </h5>
                   {/* </p> */}
+                  {/* <div className="d-flex justify-content-between"> */}
                   <button
-                    className="btn btn-info ms-1"
+                    className="btn btn-info rounded"
                     onClick={() => navigate(`/product/${p.slug}`)}
                   >
-                    DETAILS
+                    <strong>DETAILS </strong>
                   </button>
                   <button
-                    className="btn btn-dark ms-1"
+                    className="btn btn-dark ms-2 rounded"
                     onClick={() => {
                       setCart([...cart, p]);
                       localStorage.setItem(
@@ -61,8 +65,9 @@ const Search = () => {
                       toast.success("Item Added to cart");
                     }}
                   >
-                    ADD TO CART
+                    <strong>ADD TO CART</strong>
                   </button>
+                  {/* </div> */}
                 </div>
               </div>
             ))}

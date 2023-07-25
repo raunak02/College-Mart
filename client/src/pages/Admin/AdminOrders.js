@@ -54,7 +54,7 @@ const AdminOrders = () => {
             <AdminMenu />
           </div>
           <div className="col-md-7">
-            <h1 >All Orders</h1>
+            <h1>All Orders</h1>
             {orders?.map((o, i) => {
               // Create a set to store unique product IDs
               const uniqueProductIds = new Set();
@@ -67,8 +67,7 @@ const AdminOrders = () => {
                   uniqueProducts.push(p);
                 }
               });
-               const orderNumber = orders.length - i;
-
+              const orderNumber = orders.length - i;
 
               return (
                 <Collapse key={o._id} className="shadow mb-2">
@@ -76,7 +75,7 @@ const AdminOrders = () => {
                     header={`  #${orderNumber}  ${o?.buyer?.name} `}
                     key={o._id}
                   >
-                    <div className="shadow p-3 mb-5 bg-white rounded">
+                    <div className=" p-3 mb-1 bg-white rounded">
                       <table className="table">
                         <thead>
                           <tr>
@@ -114,14 +113,14 @@ const AdminOrders = () => {
                       <div className="container">
                         {uniqueProducts.map((p, i) => (
                           <div
-                            className="row mb-2 p-3 card flex-row"
+                            className="row mb-2 shadow p-3 card flex-row"
                             key={p._id}
                           >
                             <div className="col-md-2">
                               <a href={`/product/${p.slug}`}>
                                 <img
                                   src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${p._id}`}
-                                  className="card-img-top"
+                                  className="card-img shadow"
                                   alt={p.name}
                                   width={"100px"}
                                   height={"100px"}

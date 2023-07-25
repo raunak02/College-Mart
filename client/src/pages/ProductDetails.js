@@ -48,7 +48,7 @@ const ProductDetails = () => {
   return (
     <Layout>
       <div className="row container product-details">
-        <div className="col-md-4">
+        <div className="col-md-3 mb-3 card-zoom mr-2">
           <img
             src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${product._id}`}
             className="card-img-top rounded shadow"
@@ -89,9 +89,9 @@ const ProductDetails = () => {
         {relatedProducts.length < 1 && (
           <p className="text-center">No Similar Products found</p>
         )}
-        <div className="d-flex flex-wrap ">
+        <div className="d-flex flex-wrap mb-3 ">
           {relatedProducts?.map((p) => (
-            <div className="card m-3 shadow  card-zoom" key={p._id}>
+            <div className="card m-2 shadow  card-zoom" key={p._id}>
               <a href={`/product/${p.slug}`}>
                 <img
                   src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${p._id}`}

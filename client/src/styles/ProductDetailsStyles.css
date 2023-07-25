@@ -43,12 +43,24 @@
 
 
 .similar-products .card-zoom{
-  transition: transform 0.3s ease;
+  transition: transform 0.2s ease-in-out;
 }
 .similar-products .card-zoom:hover{
-  transform: scale(1.1);
+  transform: scale(1.08);
 }
+
 
 .similar-products .card-img-top {
   height: 300px !important;
+}
+/* ProductDetailsStyles.css */
+.product-card {
+  /* Your original styles for the div */
+  /* ... */
+  /* Add hover effect for zoom */
+  transition: transform 0.2s ease-in-out;
+}
+
+.product-card:hover {
+  transform: scale(1.06); /* Increase the scale value to control the amount of zoom */
 }

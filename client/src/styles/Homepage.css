@@ -16,10 +16,10 @@
   width: 18rem;
 }
 .home-page .card-zoom{
-  transition: transform 0.3s ease;
+  transition: transform 0.2s ease-in-out;
 }
 .home-page .card-zoom:hover{
-  transform: scale(1.1);
+  transform: scale(1.08);
 }
 .home-page .card-name-price {
   display: flex;
@@ -45,13 +45,13 @@
 }
 
 /* .home-page .card img:hover {
-  transform: scale(1.1);
+  transform: scale(1.08);
 
 } */
 
 .home-page .card-img-top {
   height: 300px !important;
-  transition: transform 0.3s ease;
+  transition: transform 0.2s ease-in-out;
 }
 /* ==================
 filters

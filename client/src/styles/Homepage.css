@@ -15,6 +15,12 @@
   background-color: rgba(128, 128, 128, 0.097);
   width: 18rem;
 }
+.home-page .card-zoom{
+  transition: transform 0.3s ease;
+}
+.home-page .card-zoom:hover{
+  transform: scale(1.1);
+}
 .home-page .card-name-price {
   display: flex;
   flex-direction: row;
@@ -38,12 +44,14 @@
   color: rgb(90, 89, 89);
 }
 
-.home-page .card img:hover {
-  transform: scale(0.9);
-}
+/* .home-page .card img:hover {
+  transform: scale(1.1);
+
+} */
 
 .home-page .card-img-top {
   height: 300px !important;
+  transition: transform 0.3s ease;
 }
 /* ==================
 filters
@@ -79,3 +87,4 @@ filters
   font-weight: bold;
   font-size: 20px !important;
 }
+

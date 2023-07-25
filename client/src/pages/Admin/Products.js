@@ -43,7 +43,7 @@ const Products = () => {
           <div className="col-md-9">
             <h1 >All Products List</h1>
             {/* Search Input */}
-            <div className="mb-3 col-md-10">
+            <div className="mb-3 col-md-10 shadow">
               <input
                 type="text"
                 className="form-control"
@@ -59,7 +59,7 @@ const Products = () => {
                   to={`/dashboard/admin/product/${p.slug}`}
                   className="product-link"
                 >
-                  <div className="card m-2" style={{ width: "18rem" }}>
+                  <div className="card m-3 shadow" style={{ width: "18rem" }}>
                     <img
                       src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${p._id}`}
                       className="card-img-top"

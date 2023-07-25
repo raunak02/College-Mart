@@ -58,62 +58,62 @@ const Register = () => {
   return (
     <Layout title="Register to College Mart">
       <div
-        className="form-container"
+        className="form-container "
         style={{ minHeight: "90vh", borderRadius: "10px", padding: "20px" }}
       >
         <form onSubmit={handleSubmit}>
           <h4 className="title">REGISTER FORM</h4>
-          <div className="mb-3">
+          <div className="mb-3 rounded">
             <input
               type="text"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              className="form-control"
+              className="form-control rounded"
               id="exampleInputEmail1"
               placeholder="Enter Your Name"
               required
               autoFocus
             />
           </div>
-          <div className="mb-3">
+          <div className="mb-3 rounded">
             <input
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="form-control"
+              className="form-control rounded"
               id="exampleInputEmail1"
               placeholder="Enter Your Email "
               required
             />
           </div>
-          <div className="mb-3">
+          <div className="mb-3 rounded">
             <input
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="form-control"
+              className="form-control rounded"
               id="exampleInputPassword1"
               placeholder="Enter Your Password"
               required
             />
           </div>
-          <div className="mb-3">
+          <div className="mb-3 rounded">
             <input
               type="text"
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
-              className="form-control"
+              className="form-control rounded"
               id="exampleInputEmail1"
               placeholder="Enter Your Phone"
               required
             />
           </div>
-          <div className="mb-3">
+          <div className="mb-3 rounded">
             <input
               type="text"
               value={address}
               onChange={(e) => setAddress(e.target.value)}
-              className="form-control"
+              className="form-control rounded"
               id="exampleInputEmail1"
               placeholder="Enter Your Address"
               required
@@ -124,13 +124,13 @@ const Register = () => {
               type="text"
               value={answer}
               onChange={(e) => setAnswer(e.target.value)}
-              className="form-control"
+              className="form-control rounded"
               id="exampleInputEmail1"
               placeholder="Enter Your DOB (DDMMYYYY)"
               required
             />
           </div>
-          <button type="submit" className="btn btn-primary">
+          <button type="submit" className="btn btn-primary rounded">
             REGISTER
           </button>
         </form>

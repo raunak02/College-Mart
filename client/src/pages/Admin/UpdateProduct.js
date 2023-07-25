@@ -118,7 +118,7 @@ const UpdateProduct = () => {
                 placeholder="Select a category"
                 size="large"
                 showSearch
-                className="form-select mb-3"
+                className="form-select mb-3 shadow rounded"
                 onChange={(value) => {
                   setCategory(value);
                 }}
@@ -131,7 +131,7 @@ const UpdateProduct = () => {
                 ))}
               </Select>
               <div className="mb-3">
-                <label className="btn btn-outline-secondary col-md-12">
+                <label className="btn btn-outline-secondary col-md-12 shadow rounded">
                   {photo ? photo.name : "Upload Photo"}
                   <input
                     type="file"
@@ -168,7 +168,7 @@ const UpdateProduct = () => {
                   type="text"
                   value={name}
                   placeholder="write a name"
-                  className="form-control"
+                  className="form-control shadow rounded"
                   onChange={(e) => setName(e.target.value)}
                 />
               </div>
@@ -177,7 +177,7 @@ const UpdateProduct = () => {
                   type="text"
                   value={description}
                   placeholder="write a description"
-                  className="form-control"
+                  className="form-control shadow rounded"
                   onChange={(e) => setDescription(e.target.value)}
                 />
               </div>
@@ -187,7 +187,7 @@ const UpdateProduct = () => {
                   type="number"
                   value={price}
                   placeholder="write a Price"
-                  className="form-control"
+                  className="form-control shadow rounded"
                   onChange={(e) => setPrice(e.target.value)}
                 />
               </div>
@@ -196,7 +196,7 @@ const UpdateProduct = () => {
                   type="number"
                   // value={quantity}
                   // placeholder="write a quantity"
-                  className="form-control"
+                  className="form-control shadow rounded"
                   onChange={(e) => setQuantity(e.target.value)}
                 /> */}
               </div>
@@ -217,12 +217,18 @@ const UpdateProduct = () => {
                 </Select> */}
               </div>
               <div className="mb-3">
-                <button className="btn btn-primary" onClick={handleUpdate}>
+                <button
+                  className="btn btn-primary shadow rounded"
+                  onClick={handleUpdate}
+                >
                   UPDATE PRODUCT
                 </button>
               </div>
               <div className="mb-3">
-                <button className="btn btn-danger" onClick={handleDelete}>
+                <button
+                  className="btn btn-danger shadow rounded"
+                  onClick={handleDelete}
+                >
                   DELETE PRODUCT
                 </button>
               </div>

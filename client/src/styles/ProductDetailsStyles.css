@@ -41,8 +41,12 @@
   color: rgb(90, 89, 89);
 }
 
-.similar-products .card img:hover {
-  transform: scale(0.9);
+
+.similar-products .card-zoom{
+  transition: transform 0.3s ease;
+}
+.similar-products .card-zoom:hover{
+  transform: scale(1.1);
 }
 
 .similar-products .card-img-top {

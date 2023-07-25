@@ -5,10 +5,10 @@ import { FaArrowRight } from "react-icons/fa";
 const AdminMenu = () => {
   return (
     <>
-      <div className="text-center">
+      <div className="text-center shadow">
         <div className="text-center list-group dashboard-menu admin-menu">
           <div
-            className="text-center"
+            className="text-center "
             style={{
               backgroundColor: "#505050",
               color: "white",
@@ -28,10 +28,8 @@ const AdminMenu = () => {
               }}
             >
               <div>
-                <h3 className="text-center">
-                  Admin Panel
-                </h3>
-                  {/* <FaArrowRight /> */}
+                <h3 className="text-center">Admin Panel</h3>
+                {/* <FaArrowRight /> */}
               </div>
             </NavLink>
           </div>

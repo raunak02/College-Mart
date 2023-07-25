@@ -138,7 +138,7 @@ useEffect(() => {
       />
       {/* banner image */}
       <div className="container-fluid row mt-3 home-page">
-        <div className="col-md-3 filters ">
+        <div className="col-md-3 filters shadow rounded">
           <h4 className="text-center">Category</h4>
           <Select
             mode="multiple"
@@ -182,9 +182,9 @@ useEffect(() => {
         </div>
         <div className="col-md-9 ">
           <h1 className="text-center">All Products</h1>
-          <div className="d-flex flex-wrap justify-content-center">
+          <div className="d-flex flex-wrap justify-content-center ">
             {products?.map((p) => (
-              <div className="card m-3" key={p._id}>
+              <div className="card m-3 card-zoom shadow rounded" key={p._id}>
                 <a href={`/product/${p.slug}`}>
                   <img
                     src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${p._id}`}

@@ -99,7 +99,7 @@ const CreateCategory = () => {
           </div>
           <div className="col-md-9">
             <h1>Manage Category</h1>
-            <div className="p-3 w-50">
+            <div className="p-3 w-50 shadow rounded">
               <CategoryForm
                 handleSubmit={handleSubmit}
                 value={name}

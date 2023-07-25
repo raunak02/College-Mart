@@ -150,14 +150,14 @@ const CartPage = () => {
         </div>
         <div className="container ">
           <div className="row ">
-            <div className="col-md-7  p-0 m-0">
+            <div className="col-md-7 mb-3  p-0 m-0">
               {uniqueCartItemsArray.map((p) => (
-                <div className="row card flex-row " key={p._id}>
-                  <div className="col-md-3">
+                <div className="row card flex-row shadow mb-3 " key={p._id}>
+                  <div className="col-md-3 mt-2 ">
                     <a href={`/product/${p.slug}`}>
                       <img
                         src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${p._id}`}
-                        className="card-img-top"
+                        className="card-img shadow"
                         alt={p.name}
                         width={"100px"}
                         height={"100px"}
@@ -182,6 +182,7 @@ const CartPage = () => {
                     </button>
                   </div>
                 </div>
+                
               ))}
             </div>
             <div className="col-md-5 cart-summary ">

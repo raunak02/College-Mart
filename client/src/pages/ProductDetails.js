@@ -89,15 +89,19 @@ const ProductDetails = () => {
         {relatedProducts.length < 1 && (
           <p className="text-center">No Similar Products found</p>
         )}
-        <div className="d-flex flex-wrap">
+        <div className="d-flex flex-wrap ">
           {relatedProducts?.map((p) => (
-            <div className="card m-2" key={p._id}>
-              <img
-                src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${p._id}`}
-                className="card-img-top"
-                alt={p.name}
-              />
-              <div className="card-body">
+            <div className="card m-3 shadow  card-zoom" key={p._id}>
+              <a href={`/product/${p.slug}`}>
+                <img
+                  src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${p._id}`}
+                  className="card-img-top"
+                  alt={p.name}
+                  width={"100px"}
+                  height={"100px"}
+                />
+              </a>
+              <div className="card-body ">
                 <div className="card-name-price">
                   <h5 className="card-title">{p.name}</h5>
                   <h5 className="card-title card-price">
@@ -112,7 +116,7 @@ const ProductDetails = () => {
                 </p> */}
                 <div className="card-name-price">
                   <button
-                    className="btn btn-info ms-1"
+                    className="btn btn-info ms-1 rounded"
                     onClick={() => navigate(`/product/${p.slug}`)}
                   >
                     DETAILS

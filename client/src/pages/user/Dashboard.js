@@ -12,7 +12,7 @@ const Dashboard = () => {
             <UserMenu />
           </div>
           <div className="col-md-9">
-            <div className="card w-75 p-3">
+            <div className="card w-75 p-3 shadow">
               <h4>Name:  {auth?.user?.name}</h4>
               <h4>Email: {auth?.user?.email}</h4>
               <h4>Address: {auth?.user?.address}</h4>

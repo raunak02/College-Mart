@@ -7,7 +7,7 @@ const UserMenu = () => {
   return (
     <div>
       <div
-        className="text-center dashboard-menu"
+        className="text-center dashboard-menu shadow"
         style={{ borderRadius: "10px" }}
       >
         <div className="list-group">

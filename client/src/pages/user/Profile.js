@@ -68,7 +68,7 @@ const Profile = () => {
                     type="text"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
-                    className="form-control"
+                    className="form-control rounded"
                     id="exampleInputEmail1"
                     placeholder="Enter Your Name"
                     autoFocus
@@ -79,7 +79,7 @@ const Profile = () => {
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="form-control"
+                    className="form-control rounded"
                     id="exampleInputEmail1"
                     placeholder="Enter Your Email "
                     disabled
@@ -90,7 +90,7 @@ const Profile = () => {
                     type="password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    className="form-control"
+                    className="form-control rounded"
                     id="exampleInputPassword1"
                     placeholder="Enter Your Password"
                   />
@@ -100,7 +100,7 @@ const Profile = () => {
                     type="text"
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
-                    className="form-control"
+                    className="form-control rounded"
                     id="exampleInputEmail1"
                     placeholder="Enter Your Phone"
                   />
@@ -110,13 +110,13 @@ const Profile = () => {
                     type="text"
                     value={address}
                     onChange={(e) => setAddress(e.target.value)}
-                    className="form-control"
+                    className="form-control rounded"
                     id="exampleInputEmail1"
                     placeholder="Enter Your Address"
                   />
                 </div>
 
-                <button type="submit" className="btn btn-primary">
+                <button type="submit" className="btn btn-primary rounded">
                   UPDATE
                 </button>
               </form>

@@ -47,7 +47,7 @@ const Orders = () => {
               });
 
               return (
-                <div className="border shadow" key={o._id}>
+                <div className="border shadow rounded mb-3" key={o._id}>
                   <table className="table">
                     <thead>
                       <tr>

@@ -66,7 +66,7 @@ const CreateProduct = () => {
 
   return (
     <Layout title={"Dashboard - Create Product"}>
-      <div className="container-fluid m-3 dashboard">
+      <div className="container-fluid m-3 dashboard ">
         <div className="row">
           <div className="col-md-3">
             <AdminMenu />
@@ -79,7 +79,7 @@ const CreateProduct = () => {
                 placeholder="Select a category"
                 size="large"
                 showSearch
-                className="form-select mb-3"
+                className="form-select mb-3 shadow rounded"
                 onChange={(value) => {
                   setCategory(value);
                 }}
@@ -91,7 +91,7 @@ const CreateProduct = () => {
                 ))}
               </Select>
               <div className="mb-3">
-                <label className="btn btn-outline-secondary col-md-12">
+                <label className="btn btn-outline-secondary col-md-12 shadow rounded">
                   {photo ? photo.name : "Upload Photo"}
                   <input
                     type="file"
@@ -104,7 +104,7 @@ const CreateProduct = () => {
               </div>
               <div className="mb-3">
                 {photo && (
-                  <div className="text-center">
+                  <div className="text-center ">
                     <img
                       src={URL.createObjectURL(photo)}
                       alt="product_photo"
@@ -119,7 +119,7 @@ const CreateProduct = () => {
                   type="text"
                   value={name}
                   placeholder="write a name"
-                  className="form-control"
+                  className="form-control shadow rounded"
                   onChange={(e) => setName(e.target.value)}
                 />
               </div>
@@ -128,7 +128,7 @@ const CreateProduct = () => {
                   type="text"
                   value={description}
                   placeholder="write a description"
-                  className="form-control"
+                  className="form-control shadow rounded"
                   onChange={(e) => setDescription(e.target.value)}
                 />
               </div>
@@ -138,7 +138,7 @@ const CreateProduct = () => {
                   type="number"
                   value={price}
                   placeholder="write a Price"
-                  className="form-control"
+                  className="form-control shadow rounded"
                   onChange={(e) => setPrice(e.target.value)}
                 />
               </div>
@@ -147,7 +147,7 @@ const CreateProduct = () => {
                   type="number"
                   value={quantity}
                   placeholder="write a quantity"
-                  className="form-control"
+                  className="form-control shadow rounded"
                   onChange={(e) => setQuantity(e.target.value)}
                 />
               </div> */}
@@ -167,7 +167,7 @@ const CreateProduct = () => {
                 </Select> */}
               </div>
               <div className="mb-3">
-                <button className="btn btn-primary" onClick={handleCreate}>
+                <button className="btn btn-primary shadow" onClick={handleCreate}>
                   CREATE PRODUCT
                 </button>
               </div>

@@ -48,7 +48,7 @@ const AdminOrders = () => {
   };
   return (
     <Layout title={"All Orders Data"}>
-      <div className="container-fluid m-3 dashboard">
+      <div className="container-fluid m-3 dashboard ">
         <div className="row dashboard">
           <div className="col-md-3">
             <AdminMenu />
@@ -71,7 +71,7 @@ const AdminOrders = () => {
 
 
               return (
-                <Collapse key={o._id}>
+                <Collapse key={o._id} className="shadow mb-2">
                   <Panel
                     header={`  #${orderNumber}  ${o?.buyer?.name} `}
                     key={o._id}

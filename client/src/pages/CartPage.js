@@ -47,7 +47,7 @@ const CartPage = () => {
     const uniqueCartItemsArray = Array.from(uniqueCartItems).map((item) =>
       JSON.parse(item)
     );
-  // Total price calculation for unique products
+  // Total price calculation for all unique products
   const totalPriceForUniqueProducts = () => {
     try {
       let total = 0;
